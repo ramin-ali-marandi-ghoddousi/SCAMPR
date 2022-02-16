@@ -3,7 +3,7 @@
 SCAMPR utilizes ImageJ macros and R scripts for quantification, spatial representation, and comparitive analysis of single cell _in situ_ hybridization data.  We recommend first 
 running the sample data (provided) through the pipeline prior to running your own data.
 
-The below steps assume that the user has generated a flattened, z-projected images for each image channel. <br><br><br><br>
+The below steps assume that the user has generated a flattened, z-projected images for each image channel. <br><br><br>
  
  
 ## 1. Register TIFF microscopy files (optional)
