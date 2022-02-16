@@ -1,23 +1,23 @@
 # SCAMPR
 
-SCAMPR utilizes ImageJ macros and R scripts for quantification, spatial representation, and comparitive analysis of single cell _in situ_ hybridization data.  We recommend first 
+SCAMPR utilizes ImageJ macros and R scripts for quantification, spatial representation, and comparative analysis of single cell _in situ_ hybridization data.  We recommend first 
 running the sample images and ROIs (provided) through the pipeline prior to running your own.
 
-The below steps assume that the user has already generated flattened, z-projected images for each image channel. 
+The steps below assume that the user has already generated flattened, z-projected images for each image channel. 
 
 ![image](https://user-images.githubusercontent.com/64667688/154179103-586c8f7d-3bc2-44eb-81bc-4ba6cda1a6f8.png)<br><br><br>
  
 
 ## 1. Register TIFF microscopy files (optional)
 
-If you performed multiple rounds of imaging (Hiplex), utilize the [ACD BIO Registration Software](https://acdbio.com/store/rnascope-hiplex-image-registration-software.html) or ImageJ to register the TIFF image files from the multiple rounds.<br><br><br>
+If you only performed single-round _in situ_ hybridization (e.g Multiplex RNAscope), you can skip this step.  Conversely, if you performed multi-round _in situ_ hybridization (e.g HiPlex RNAscope), utilize the [ACD BIO Registration Software](https://acdbio.com/store/rnascope-hiplex-image-registration-software.html) or ImageJ to register the TIFF image files from the multiple rounds of imaging.<br><br><br>
 
 
 ## 2. Generate Cellular ROIs
 
-Run Cellpose locally or by utilizing a modified google colab notebook on the HuC/D images corresponding to each sample.  The colab notbeook is written by Pradeep Rajasekhar from the Monash Institute of Pharmaceutical Sciences and was modified to save all masks as a zip file. [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/11m15HUl_StmZUiZjQ2QiaEKaToWLYKn2#scrollTo=Drx_6GbEHIOj)  
+Using the HuC/D or DAPI images that correspond to each sample, run [cellpose](https://github.com/MouseLand/cellpose) locally on your device or by utilizing a modified google colab notebook to segment each image into individual cells.  The colab notbeook is written by Pradeep Rajasekhar from the Monash Institute of Pharmaceutical Sciences and was modified to save all masks as a zip file. [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/11m15HUl_StmZUiZjQ2QiaEKaToWLYKn2#scrollTo=Drx_6GbEHIOj)  
 
-The input will be the registered images from Step 1 and the output will be cellular mask files that can then be converted into ImageJ ROIs using the SCF plugin in ImageJ.
+The output will be cellular mask files that can then be converted into ImageJ ROIs using the SCF plugin in ImageJ.
 
 To convert masks to ROIS, downlaod the SCF package in ImageJ: _Help > Update... > Manage Update Sites_.  Check the box next to SCF MPI CBG, Apply Changes, and restart ImageJ.
 Open a mask file in ImageJ, then select _SCF > Segmentation > LabelMap to ROI Manager (2D)_ to get ROIs.  Select all ROIs in the ROI Manager and save.  Ensure that each ROI folder matches the corresponding image  title (see sample data and image below).
@@ -27,7 +27,7 @@ Open a mask file in ImageJ, then select _SCF > Segmentation > LabelMap to ROI Ma
 
 ## 3. Quantification of Gene Expression in ImageJ
 
-In this step, a key will be generated to help calculate the expression of each gene in each cellular ROI.  Gene expression is calculated as an area-fraction (the percent of a cellular ROI that contains fluorescent signal).  These expression values can be used as-is during the data visualization and analyses in Step 4, or can be converted into a value representing the number of pixels or ums that are positive for a fluorescent signal.  This conversion will take place in the R scripts used for visualization and analysis.
+In this step, a key file will be generated to help calculate the expression of each gene in each cellular ROI.  Gene expression is calculated as an area-fraction (the percent of a cellular ROI that contains fluorescent signal).  These expression values can be used as-is during the data visualization and analyses in Step 4, or can be converted into a value representing the number of pixels or ums that are positive for a fluorescent signal.  This conversion will take place in the R scripts used for visualization and analysis.
 
 #### Required Data
 
@@ -39,7 +39,7 @@ In this step, a key will be generated to help calculate the expression of each g
     2. The upper threshold value: _Ctrl + Shift + T_. Use lower adjustement bar to change value.
     3. Average particle size (optional): _Analyze > Set Measurements_ -- Check Area and Limit to Threshold. Draw a circle around an isolated mRNA particle using the Oval                selection tool and type 'M' on your keyboard.  The area will give you the number of pixels with signal.
 
-##### _IMPORTANT CONSIDERATIONS_
+##### _!!!IMPORTANT CONSIDERATIONS!!!_
 
 - For the SCAMPR_AreaFraction.ijm file to work without throwing errors, the TIFF microscopy image files should be stored in seperate folder for each section (see sample data).
 - The names of each image file should EXACTLY match the names in the Image Title column in the CSV Key file.
