@@ -1,11 +1,13 @@
 # SCAMPR
 
 SCAMPR utilizes ImageJ macros and R scripts for quantification, spatial representation, and comparitive analysis of single cell _in situ_ hybridization data.  We recommend first 
-running the sample data (provided) through the pipeline prior to running your own data.
+running the sample images and ROIs (provided) through the pipeline prior to running your own.
 
-The below steps assume that the user has generated flattened, z-projected images for each image channel. <br><br><br>
+The below steps assume that the user has already generated flattened, z-projected images for each image channel. 
+
+![image](https://user-images.githubusercontent.com/64667688/154179103-586c8f7d-3bc2-44eb-81bc-4ba6cda1a6f8.png)<br><br><br>
  
- 
+
 ## 1. Register TIFF microscopy files (optional)
 
 If you performed multiple rounds of imaging (Hiplex), utilize the [ACD BIO Registration Software](https://acdbio.com/store/rnascope-hiplex-image-registration-software.html) or ImageJ to register the TIFF image files from the multiple rounds.<br><br><br>
