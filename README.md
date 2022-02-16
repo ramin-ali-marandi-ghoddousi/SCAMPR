@@ -1,4 +1,4 @@
-# SCAMPR-Test
+# SCAMPR
 
 SCAMPR utilizes ImageJ macros and R scripts for quantification, spatial representation, and comparitive analysis of single cell _in situ_ hybridization data.  We recommend first 
 running the sample data (provided) through the pipeline prior to running your own data.
