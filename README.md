@@ -32,7 +32,7 @@ In this step, a key will be generated to help calculate the expression of each g
 1. Registered TIFF microscopy files (from Step 1).
 2. ROIs for each TIFF microscopy file (from Step 2).
 3. CSV Key file.
-    - To generate this key, run the _SCAMPR_FilenamesCSV.R_ script to generate a Key template in CSV format.  Fill in the tempelate by opening each TIFF file in ImageJ and noting:
+    - To generate this key, run the _SCAMPR_FilenamesCSV.R_ script to generate a Key template in CSV format.  Fill in the template by opening each TIFF file in ImageJ and noting:
     1. The ideal Rolling-ball-radius: _Process > Subtract_ Background. Hit Okay.
     2. The upper threshold value: _Ctrl + Shift + T_. Use lower adjustement bar to change value.
     3. Average particle size (optional): _Analyze > Set Measurements_ -- Check Area and Limit to Threshold. Draw a circle around an isolated mRNA particle using the Oval                selection tool and type 'M' on your keyboard.  The area will give you the number of pixels with signal.
@@ -65,6 +65,8 @@ The R scripts in this section can be used to visualize the level of gene express
 
 ### Violin Plots and Expression Spatial Topomaps
 
+Generate normalized gene expression violin plots and map these gene expression values back onto the tissue.
+
 #### Required Data
 
 1. Gene X Cell Count Matrix from Step 2
@@ -83,6 +85,8 @@ The R scripts in this section can be used to visualize the level of gene express
 
 <br><br>
 ### Heirarchical Clustering and Cluster Spatial Topomaps
+
+Perform heirarchical clustering on data, compare gene expression and cell size across different clustering, and map clusters back onto the tissue.
 
 #### Required Data
 
@@ -103,6 +107,8 @@ The R scripts in this section can be used to visualize the level of gene express
 <br><br>
 ### Co-expression Correlation Plots and Co-expression Spatial Topomaps
 
+Plot pairwise co-expressoin circle plots, co-expression scatterplots with smoothing lines, and map co-expression patterns back onto tissue.
+
 #### Required Data
 
 1. Gene X Cell Count Matrix from Step 2
@@ -120,7 +126,9 @@ The R scripts in this section can be used to visualize the level of gene express
 | ![image](https://user-images.githubusercontent.com/64667688/153977754-f0c75825-a8b8-4557-9cdb-15c137c5d998.png) | ![image](https://user-images.githubusercontent.com/64667688/153977445-316b70ae-a94a-4039-9d16-bc3bdb6cf70f.png) |
 
 <br><br>
-### Comparative (between-group) analysis
+### Comparative (between-group) Analysis
+
+Compare pairwise gene co-expression patterns between two experimental groups.  You can compare pairwise correlation, mean gene expression, and the percent of cells expressing each gene.
 
 #### Required Data
 
@@ -139,7 +147,9 @@ The R scripts in this section can be used to visualize the level of gene express
 | ![image](https://user-images.githubusercontent.com/64667688/154169686-020cd78e-1ad2-44d6-9d7c-468dc172d219.png) | ![image](https://user-images.githubusercontent.com/64667688/154169702-a34404c7-61de-4000-8676-34c565f8b4ba.png) | ![image](https://user-images.githubusercontent.com/64667688/154169720-0fb05f72-41ea-4c52-a8f4-652db1750476.png) |
 
 <br><br>
-### Cell-Type specific comparative (between-group) analysis
+### Cell-Type Specific Comparative (between-group) Analysis
+
+Generate cell-type specific subsets of data, then compare pairwise correlation, mean gene expression, and the percent of cells expressing each gene in each cell type between experimental groups.
 
 #### Required Data
 
