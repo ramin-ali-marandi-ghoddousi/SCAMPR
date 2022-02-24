@@ -1,19 +1,20 @@
 # SCAMPR - **S**ingle-**C**ell **A**utomated **M**ultiplex **P**ipeline for **R**NA
 
 SCAMPR utilizes ImageJ macros and R scripts for quantification, spatial representation, and comparative analysis of single cell _in situ_ hybridization data.  We recommend first 
-running the sample images and ROIs (provided) through the pipeline prior to running your own.
-
-The steps below assume that the user has already generated flattened, z-projected images for each image channel. 
+running the sample images and ROIs (provided) through the pipeline prior to running your own. 
 
 ![image](https://user-images.githubusercontent.com/64667688/154179103-586c8f7d-3bc2-44eb-81bc-4ba6cda1a6f8.png)<br><br><br>
- 
 
-## 1. Register TIFF microscopy files (optional)
+## 1. Generate flattened, maximun intensity z-projections
+
+Open each microscopy file in ImageJ and generate flattened image:  _Image > Stacks > Z Project..._.  Select  _Maximum Intensity_ for projection type.  Save flattened image.<br><br><br>
+
+## 2. Register TIFF microscopy files (optional)
 
 If you only performed single-round _in situ_ hybridization (e.g Multiplex RNAscope), you can skip this step.  Conversely, if you performed multi-round _in situ_ hybridization (e.g HiPlex RNAscope), utilize the [ACD BIO Registration Software](https://acdbio.com/store/rnascope-hiplex-image-registration-software.html) or ImageJ to register the TIFF image files from the multiple rounds of imaging.<br><br><br>
 
 
-## 2. Generate Cellular ROIs
+## 3. Generate Cellular ROIs
 
 Using the HuC/D or DAPI images that correspond to each sample, run [cellpose](https://github.com/MouseLand/cellpose) locally on your device or by utilizing a modified google colab notebook to segment each image into individual cells.  The colab notbeook is written by Pradeep Rajasekhar from the Monash Institute of Pharmaceutical Sciences and was modified to save all masks as a zip file. [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/11m15HUl_StmZUiZjQ2QiaEKaToWLYKn2#scrollTo=Drx_6GbEHIOj)  
 
@@ -25,14 +26,14 @@ Open a mask file in ImageJ, then select _SCF > Segmentation > LabelMap to ROI Ma
 ![image](https://user-images.githubusercontent.com/64667688/154147059-49c96f2a-ba9c-44aa-b73d-7608e8d1bba9.png)<br><br><br>
 
 
-## 3. Quantification of Gene Expression in ImageJ
+## 4. Quantification of Gene Expression in ImageJ
 
 In this step, a key file will be generated to help calculate the expression of each gene in each cellular ROI.  Gene expression is calculated as an area-fraction (the percent of a cellular ROI that contains fluorescent signal).  These expression values can be used as-is during the data visualization and analyses in Step 4, or can be converted into a value representing the number of pixels or ums that are positive for a fluorescent signal.  This conversion will take place in the R scripts used for visualization and analysis.
 
 #### Required Data
 
-1. Registered TIFF microscopy files (from Step 1).
-2. ROIs for each TIFF microscopy file (from Step 2).
+1. Flattened TIFF image files (from Step 1 or 2).
+2. ROIs for each TIFF image file (from Step 3).
 3. CSV Key file.
     - To generate this key, run the _SCAMPR_FilenamesCSV.R_ script to generate a Key template in CSV format.  Fill in the template by opening each TIFF file in ImageJ and noting:
     1. The ideal Rolling-ball-radius: _Process > Subtract_ Background. Hit Okay.
@@ -61,7 +62,7 @@ In this step, a key file will be generated to help calculate the expression of e
 | ![image](https://user-images.githubusercontent.com/64667688/153974233-da44ba8b-849d-4ad5-9349-8174d70dea51.png) | ![image](https://user-images.githubusercontent.com/64667688/153974260-4e6878dd-d3fa-47f6-8a54-767485b760c8.png) |
 
 <br><br>
-## 4. Visualization and Analysis
+## 5. Visualization and Analysis
 
 The R scripts in this section can be used to visualize the level of gene expression in specific samples, the level of gene co-expression in these samples, and can be used to perform gene expression comparisions between two experimental groups on a broad and cell-type specific manner.   Example outputs are provided for each R script below using the sample data.  
 
@@ -71,8 +72,8 @@ Generate normalized gene expression violin plots and map these gene expression v
 
 #### Required Data
 
-1. Gene X Cell Count Matrix from Step 2
-2. ROIs from Step 1
+1. Gene X Cell Count Matrix from Step 4
+2. ROIs from Step 3
 
 #### Required Code:
 
@@ -92,8 +93,8 @@ Perform heirarchical clustering on data, compare gene expression and cell size a
 
 #### Required Data
 
-1. Gene X Cell Count Matrix from Step 2
-2. ROIs from Step 1
+1. Gene X Cell Count Matrix from Step 4
+2. ROIs from Step 3
 
 #### Required Code:
 
@@ -113,8 +114,8 @@ Plot pairwise co-expressoin circle plots, co-expression scatterplots with smooth
 
 #### Required Data
 
-1. Gene X Cell Count Matrix from Step 2
-2. ROIs from Step 1
+1. Gene X Cell Count Matrix from Step 4
+2. ROIs from Step 3
 
 #### Required Code:
 
@@ -134,7 +135,7 @@ Compare pairwise gene co-expression patterns between two experimental groups.  Y
 
 #### Required Data
 
-1. Gene X Cell Count Matrix from Step 2
+1. Gene X Cell Count Matrix from Step 4
 
 #### Required Code:
 
@@ -155,7 +156,7 @@ Generate cell-type specific subsets of data, then compare pairwise correlation, 
 
 #### Required Data
 
-1. Gene X Cell Count Matrix from Step 2
+1. Gene X Cell Count Matrix from Step 4
 
 #### Required Code:
 
