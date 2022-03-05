@@ -177,4 +177,4 @@ Generate cell-type specific subsets of data, then compare pairwise correlation, 
 2. [R Studio Version 1.4.1717 or greater](https://www.rstudio.com/products/rstudio/)
 3. [R Version 1.4.0 or greater](https://www.r-project.org/)
 4. [MouseLand Cellpose](https://github.com/MouseLand/cellpose) (Download not required.  Google Colab notebook provided in Step 3)
-5. [XQuarts](https://www.xquartz.org/) (Only required for macOS)
+5. [XQuartz](https://www.xquartz.org/) (Only required for macOS)
