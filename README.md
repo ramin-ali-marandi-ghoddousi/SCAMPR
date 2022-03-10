@@ -16,6 +16,15 @@ running the sample images and ROIs (provided) through the pipeline prior to runn
 ## 1. Generate flattened, maximun intensity z-projections
 
 Open each microscopy file in ImageJ and generate flattened image:  _Image > Stacks > Z Project..._.  Select  _Maximum Intensity_ for projection type.  Save flattened image.<br><br><br>
+##### &#x2757;&#x2757;_IMPORTANT CONSIDERATIONS_&#x2757;&#x2757;
+
+- For the SCAMPR_AreaFraction.ijm file in step 4 to work without throwing errors, the TIFF microscopy image files should be stored in seperate folder for each section (see sample data and image below). Everything to the left of the " _ " in the image file name must &#x1F536; EXACTLY &#x1F536; match the name of its containing folder.<br><br><br>
+![image](https://user-images.githubusercontent.com/64667688/157580492-5a1b7517-a712-406c-9cef-cebbe5e5d8a8.png)
+
+- The names of each image file should also &#x1F536; EXACTLY &#x1F536; match the names in the Image Title column in the CSV Key file.  
+-  The following portions of the image file names (red) &#x1F536;**_cannot_**&#x1F536;  be changed:
+
+![image](https://user-images.githubusercontent.com/64667688/153970966-b7e56ef6-a5f7-4a39-b9b0-2746af59ecba.png)
 
 ## 2. Register TIFF microscopy files (optional)
 
@@ -24,11 +33,11 @@ If you only performed single-round _in situ_ hybridization (e.g Multiplex RNAsco
 
 ## 3. Generate Cellular ROIs
 
-Using the HuC/D or DAPI images that correspond to each sample, run [cellpose](https://github.com/MouseLand/cellpose) locally on your device or by utilizing a modified google colab notebook to segment each image into individual cells.  The colab notbeook is written by Pradeep Rajasekhar from the Monash Institute of Pharmaceutical Sciences and was modified to save all masks as a zip file. [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/11m15HUl_StmZUiZjQ2QiaEKaToWLYKn2#scrollTo=Drx_6GbEHIOj)  
+Using the HuC/D or DAPI images that correspond to each sample, run [cellpose](https://github.com/MouseLand/cellpose) locally on your device or by utilizing a modified google colab notebook to segment each image into individual cells.  The colab notbeook is written by Pradeep Rajasekhar from the Monash Institute of Pharmaceutical Sciences and was modified for simplicity and to save all masks as a zip file. [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/11m15HUl_StmZUiZjQ2QiaEKaToWLYKn2#scrollTo=Drx_6GbEHIOj)  
 
 The output will be cellular mask files that can then be converted into ImageJ ROIs using the SCF plugin in ImageJ.
 
-First, downlaod the SCF package in ImageJ: _Help > Update... > Manage Update Sites_.  Check the box next to SCF MPI CBG, Apply Changes, and restart ImageJ.
+First, download the SCF package in ImageJ: _Help > Update... > Manage Update Sites_.  Check the box next to SCF MPI CBG, Apply Changes, and restart ImageJ.
 
 To convert masks to ROIs, open a mask file in ImageJ and select _SCF > Segmentation > LabelMap to ROI Manager (2D)_ to get ROIs.  Select all ROIs in the ROI Manager and save. &#x2757;**_Ensure that each ROI folder matches the corresponding image title (see sample data and image below)._**
 
@@ -49,15 +58,6 @@ In this step, a key file will be generated to help calculate the expression of e
     2. The upper threshold value: _Ctrl + Shift + T_. Use lower adjustement bar to change value.
     3. Average particle size (optional): _Analyze > Set Measurements_ -- Check Area and Limit to Threshold. Draw a circle around an isolated mRNA particle using the Oval                selection tool and type 'M' on your keyboard.  The area will give you the number of pixels with signal.
 
-##### &#x2757;&#x2757;_IMPORTANT CONSIDERATIONS_&#x2757;&#x2757;
-
-- For the SCAMPR_AreaFraction.ijm file to work without throwing errors, the TIFF microscopy image files should be stored in seperate folder for each section (see sample data and image below). Everything to the left of the " _ " in the image file name must &#x1F536; EXACTLY &#x1F536; match the name of its containing folder.<br><br><br>
-![image](https://user-images.githubusercontent.com/64667688/157580492-5a1b7517-a712-406c-9cef-cebbe5e5d8a8.png)
-
-- The names of each image file should also &#x1F536; EXACTLY &#x1F536; match the names in the Image Title column in the CSV Key file.  
--  The following portions of the image file names (red) &#x1F536;**_cannot_**&#x1F536;  be changed:
-
-![image](https://user-images.githubusercontent.com/64667688/153970966-b7e56ef6-a5f7-4a39-b9b0-2746af59ecba.png)
 
 
 #### Required Code:
