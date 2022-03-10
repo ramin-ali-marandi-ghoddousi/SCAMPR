@@ -21,7 +21,7 @@ Using the HuC/D or DAPI images that correspond to each sample, run [cellpose](ht
 The output will be cellular mask files that can then be converted into ImageJ ROIs using the SCF plugin in ImageJ.
 
 To convert masks to ROIS, downlaod the SCF package in ImageJ: _Help > Update... > Manage Update Sites_.  Check the box next to SCF MPI CBG, Apply Changes, and restart ImageJ.
-Open a mask file in ImageJ, then select _SCF > Segmentation > LabelMap to ROI Manager (2D)_ to get ROIs.  Select all ROIs in the ROI Manager and save.  **_Ensure that each ROI folder matches the corresponding image title (see sample data and image below)._**
+Open a mask file in ImageJ, then select _SCF > Segmentation > LabelMap to ROI Manager (2D)_ to get ROIs.  Select all ROIs in the ROI Manager and save. LARGE ORANGE DIAMOND (&#x1F536;) **_Ensure that each ROI folder matches the corresponding image title (see sample data and image below)._**
 
 ![image](https://user-images.githubusercontent.com/64667688/154147059-49c96f2a-ba9c-44aa-b73d-7608e8d1bba9.png)<br><br><br>
 
