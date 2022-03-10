@@ -43,7 +43,7 @@ In this step, a key file will be generated to help calculate the expression of e
 ##### _!!!IMPORTANT CONSIDERATIONS!!!_
 
 - For the SCAMPR_AreaFraction.ijm file to work without throwing errors, the TIFF microscopy image files should be stored in seperate folder for each section (see sample data and image below). Everything to the left of the " _ " in the image file name should EXACTLY match the name of its containing folder.
-![image](https://user-images.githubusercontent.com/64667688/157578955-f3b0d0cf-6b14-4e08-80ef-a0c8343b2bdb.png)
+![image](https://user-images.githubusercontent.com/64667688/157580492-5a1b7517-a712-406c-9cef-cebbe5e5d8a8.png)
 
 - The names of each image file should also EXACTLY match the names in the Image Title column in the CSV Key file.  
 - The following portions of the image file names (red) **_cannot_** be changed:
