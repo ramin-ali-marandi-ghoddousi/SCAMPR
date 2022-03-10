@@ -15,14 +15,12 @@ running the sample images and ROIs (provided) through the pipeline prior to runn
 
 ## 1. Generate flattened, maximun intensity z-projections
 
-Open each microscopy file in ImageJ and generate flattened image:  _Image > Stacks > Z Project..._.  Select  _Maximum Intensity_ for projection type.  Save flattened image.<br><br><br>
+Open each microscopy file in ImageJ and generate flattened image:  _Image > Stacks > Z Project..._.  Select  _Maximum Intensity_ for projection type.  Save flattened image as TIFF file.<br><br><br>
 ##### &#x2757;&#x2757;_IMPORTANT CONSIDERATIONS_&#x2757;&#x2757;
 
-- For the SCAMPR_AreaFraction.ijm file in step 4 to work without throwing errors, the TIFF microscopy image files should be stored in seperate folder for each section (see sample data and image below). Everything to the left of the " _ " in the image file name must &#x1F536; EXACTLY &#x1F536; match the name of its containing folder.<br><br><br>
+- For the SCAMPR_AreaFraction.ijm file in step 4 to work without throwing errors, the flattened TIFF image files should be stored in seperate folder for each section (see sample data and image below). Everything to the left of the " _ " in the image file name must &#x1F536; EXACTLY &#x1F536; match the name of its containing folder.<br><br><br>
 ![image](https://user-images.githubusercontent.com/64667688/157580492-5a1b7517-a712-406c-9cef-cebbe5e5d8a8.png)
-
-- The names of each image file should also &#x1F536; EXACTLY &#x1F536; match the names in the Image Title column in the CSV Key file.  
--  The following portions of the image file names (red) &#x1F536;**_cannot_**&#x1F536;  be changed:
+- The following portions of the image file names (red) &#x1F536;**_cannot_**&#x1F536;  be changed:
 
 ![image](https://user-images.githubusercontent.com/64667688/153970966-b7e56ef6-a5f7-4a39-b9b0-2746af59ecba.png)
 
@@ -58,6 +56,8 @@ In this step, a key file will be generated to help calculate the expression of e
     2. The upper threshold value: _Ctrl + Shift + T_. Use lower adjustement bar to change value.
     3. Average particle size (optional): _Analyze > Set Measurements_ -- Check Area and Limit to Threshold. Draw a circle around an isolated mRNA particle using the Oval                selection tool and type 'M' on your keyboard.  The area will give you the number of pixels with signal.
 
+##### &#x2757;&#x2757;_IMPORTANT CONSIDERATIONS_&#x2757;&#x2757;
+The names of each TIFF image file should &#x1F536; EXACTLY &#x1F536; match the names in the Image Title column in the CSV Key file.  Using the _SCAMPR_FilenamesCSV.R_ to pre-populate the CSV Key file should help ensure that this is the case.
 
 
 #### Required Code:
