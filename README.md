@@ -21,7 +21,7 @@ Using the HuC/D or DAPI images that correspond to each sample, run [cellpose](ht
 The output will be cellular mask files that can then be converted into ImageJ ROIs using the SCF plugin in ImageJ.
 
 To convert masks to ROIS, downlaod the SCF package in ImageJ: _Help > Update... > Manage Update Sites_.  Check the box next to SCF MPI CBG, Apply Changes, and restart ImageJ.
-Open a mask file in ImageJ, then select _SCF > Segmentation > LabelMap to ROI Manager (2D)_ to get ROIs.  Select all ROIs in the ROI Manager and save. &#x2757;**_Ensure that each ROI folder matches the corresponding image title (see sample data and image below)._** <br><br>
+Open a mask file in ImageJ, then select _SCF > Segmentation > LabelMap to ROI Manager (2D)_ to get ROIs.  Select all ROIs in the ROI Manager and save. &#x2757;**_Ensure that each ROI folder matches the corresponding image title (see sample data and image below)._**
 
 ![image](https://user-images.githubusercontent.com/64667688/154147059-49c96f2a-ba9c-44aa-b73d-7608e8d1bba9.png)<br><br><br>
 
@@ -42,7 +42,7 @@ In this step, a key file will be generated to help calculate the expression of e
 
 ##### &#x2757;&#x2757;_IMPORTANT CONSIDERATIONS_&#x2757;&#x2757;
 
-- For the SCAMPR_AreaFraction.ijm file to work without throwing errors, the TIFF microscopy image files should be stored in seperate folder for each section (see sample data and image below). Everything to the left of the " _ " in the image file name must &#x1F536; EXACTLY &#x1F536; match the name of its containing folder.
+- For the SCAMPR_AreaFraction.ijm file to work without throwing errors, the TIFF microscopy image files should be stored in seperate folder for each section (see sample data and image below). Everything to the left of the " _ " in the image file name must &#x1F536; EXACTLY &#x1F536; match the name of its containing folder.<br><br><br>
 ![image](https://user-images.githubusercontent.com/64667688/157580492-5a1b7517-a712-406c-9cef-cebbe5e5d8a8.png)
 
 - The names of each image file should also &#x1F536; EXACTLY &#x1F536; match the names in the Image Title column in the CSV Key file.  
