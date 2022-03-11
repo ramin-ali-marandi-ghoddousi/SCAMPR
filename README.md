@@ -32,9 +32,13 @@ Open each microscopy file in ImageJ and generate flattened image:  _Image > Stac
 
 If you only performed single-round _in situ_ hybridization (e.g Multiplex RNAscope), you can skip this step.  Conversely, if you performed multi-round _in situ_ hybridization (e.g HiPlex RNAscope), utilize the [ACD BIO Registration Software](https://acdbio.com/store/rnascope-hiplex-image-registration-software.html) or ImageJ to register the TIFF image files from the multiple rounds of imaging.<br><br><br>
 
-To register images in ImageJ, use the _Register Virtual Stack Slices_ and _Transform Virtual Stack Slices_ (_Plugins --> Transform_) plugins and the following protocol:
-1. Organize the flattened TIFF images from the multiple rounds of imaging into seperate folders in the following manner:
-   2.    Run the _Register Virtual Stack Slices_ plugin (_Plugins --> Registration_)
+To register images in ImageJ, use the _Register Virtual Stack Slices_ and _Transform Virtual Stack Slices_ (_Plugins --> Transform_) plugins. The following protocol outlines how to do this for one tissue section (unregistered sample images are provided in the "Registration Sample" folder):
+1. Place all flattened TIFF images into a folder named Input_Images and organize them into seperate subfolders folders in the following manner:
+   -  Place all DAPI images from each microscopy round into one folder.
+   -  Place all other mRNA and HuCD images from all other microscopy rounds into folders corresponding to their microscopy round (i.e genes 1/2/3/4 from round 1 into a folder named Round1, genes 5/6/7/8 from microscopy round 2 into a folder named Round2, etc.)
+2. Create an Ouput_Images folder and generate subfolders where the registered DAPI and round-specific mRNA/HuCD images will be saved (i.e DAPI_Images, Round1, Round2, Round3, etc).
+3. Create a Tranformation_files folder and generate round-specific subforlders. 
+4. Run the _Register Virtual Stack Slices_ plugin (_Plugins --> Registration_)
 
 
 
