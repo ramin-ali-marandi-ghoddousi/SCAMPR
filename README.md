@@ -19,7 +19,7 @@ running the sample images and ROIs (provided) through the pipeline prior to runn
 
 ## 1. Generate flattened, maximun intensity z-projections
 
-Open each microscopy file in ImageJ and generate flattened image:  _Image > Stacks > Z Project..._.  Select  _Maximum Intensity_ for projection type.  Save flattened image as TIFF file.<br><br><br>
+Open each microscopy file in ImageJ and generate flattened image:  _Image --> Stacks --> Z Project..._.  Select  _Maximum Intensity_ for projection type.  Split the different channels in the stack into seperate seperate images (_Image --> Color --> Split Channels_) and save flattened image as TIFF file.<br><br><br>
 ##### &#x2757;&#x2757;_IMPORTANT CONSIDERATIONS_&#x2757;&#x2757;
 
 - These flattened TIFF files are fed into the SCAMPR_AreaFraction.ijm macro in step 4 to quantify mRNA expression.  For this macro to run without throwing errors, the flattened TIFF image files for each tissue section must be stored in seperate folders.  Example: The flattened TIFF images from the 3-4 rounds of imaging for the first tissue section on a slide should be stored in one folder and the flattened TIFF images from the 3-4 rounds of imaging for the second tissue section should be stored in a seperate folder (see sample data and image below). Everything to the left of the " _ " in the image file name must &#x1F536; EXACTLY &#x1F536; match the name of its containing folder.<br><br><br>
