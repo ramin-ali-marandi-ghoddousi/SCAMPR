@@ -39,6 +39,12 @@ To register images in ImageJ, use the _Register Virtual Stack Slices_ and _Trans
 2. Create an Ouput_Images folder and generate subfolders where the registered DAPI and round-specific mRNA/HuCD images will be saved (i.e DAPI_Images, Round1, Round2, Round3, etc).
 3. Create a Tranformation_files folder and generate round-specific subforlders. 
 4. Run the _Register Virtual Stack Slices_ plugin (_Plugins --> Registration_)
+   - Select folder with all of your DAPI input images
+   - Select folder where you want your registered DAPI images to be saved
+   - Choose "Rigid" for Feature extraction model and "Elastic" for Registration Model.
+   - Select "Save Transforms" and click OK.
+   - Select folder where transformation matrices will be saved.
+   - Select one of your DAPI input images.  All other images will be registered to this DAPI image.
 
 
 
