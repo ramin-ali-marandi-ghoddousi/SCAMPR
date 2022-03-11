@@ -8,7 +8,10 @@ running the sample images and ROIs (provided) through the pipeline prior to runn
 ## Required Software
 
 1. [Fiji ImageJ](https://imagej.net/software/fiji/) and plugins:
-   - SCF plugin -- To convert cellpose masks to ImageJ ROIs. To dowload plugin, open ImageJ.  Select _Help > Update... > Manage Update Sites_.  Check the box next to SCF MPI CBG, Apply Changes, and restart ImageJ.
+   - SCF plugin -- To convert cellpose masks to ImageJ ROIs. To dowload plugin in ImageJ:  
+      1. Select _Help > Update... > Manage Update Sites_.  
+      2. Check the box next to SCF MPI CBG.
+      3. Apply changes and restart ImageJ.
 3. [R Studio Version 1.4.1717 or greater](https://www.rstudio.com/products/rstudio/)
 4. [R Version 1.4.0 or greater](https://www.r-project.org/)
 5. [MouseLand Cellpose](https://github.com/MouseLand/cellpose) (Download not required.  Google Colab notebook provided in Step 3)
