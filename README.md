@@ -8,17 +8,18 @@ running the sample images and ROIs (provided) through the pipeline prior to runn
 ## Required Software
 
 1. [Fiji ImageJ](https://imagej.net/software/fiji/)
-2. [R Studio Version 1.4.1717 or greater](https://www.rstudio.com/products/rstudio/)
-3. [R Version 1.4.0 or greater](https://www.r-project.org/)
-4. [MouseLand Cellpose](https://github.com/MouseLand/cellpose) (Download not required.  Google Colab notebook provided in Step 3)
-5. [XQuartz](https://www.xquartz.org/) (Only required for macOS)<br><br>
+   - To convert cellpose masks to ImageJ ROIs, download the SCF package in ImageJ: _Help > Update... > Manage Update Sites_.  Check the box next to SCF MPI CBG, Apply Changes, and restart ImageJ.
+3. [R Studio Version 1.4.1717 or greater](https://www.rstudio.com/products/rstudio/)
+4. [R Version 1.4.0 or greater](https://www.r-project.org/)
+5. [MouseLand Cellpose](https://github.com/MouseLand/cellpose) (Download not required.  Google Colab notebook provided in Step 3)
+6. [XQuartz](https://www.xquartz.org/) (Only required for macOS)<br><br>
 
 ## 1. Generate flattened, maximun intensity z-projections
 
 Open each microscopy file in ImageJ and generate flattened image:  _Image > Stacks > Z Project..._.  Select  _Maximum Intensity_ for projection type.  Save flattened image as TIFF file.<br><br><br>
 ##### &#x2757;&#x2757;_IMPORTANT CONSIDERATIONS_&#x2757;&#x2757;
 
-- For the SCAMPR_AreaFraction.ijm file in step 4 to work without throwing errors, the flattened TIFF image files should be stored in seperate folder for each section (see sample data and image below). Everything to the left of the " _ " in the image file name must &#x1F536; EXACTLY &#x1F536; match the name of its containing folder.<br><br><br>
+- These flattened TIFF files are fed into the SCAMPR_AreaFraction.ijm macro in step 4 to quantify mRNA expression.  For this macro to run without throwing errors, the flattened TIFF image files for each tissue section must be stored in seperate folders.  Example: The flattened TIFF images from the 3-4 rounds of imaging for the first tissue section on a slide should be stored in one folder and the flattened TIFF images from the 3-4 rounds of imaging for the second tissue section should be stored in a seperate folder (see sample data and image below). Everything to the left of the " _ " in the image file name must &#x1F536; EXACTLY &#x1F536; match the name of its containing folder.<br><br><br>
 ![image](https://user-images.githubusercontent.com/64667688/157580492-5a1b7517-a712-406c-9cef-cebbe5e5d8a8.png)<br><br><br>
 - The following portions of the image file names (red) &#x1F536;**_cannot_**&#x1F536;  be changed:
 
@@ -29,13 +30,12 @@ Open each microscopy file in ImageJ and generate flattened image:  _Image > Stac
 If you only performed single-round _in situ_ hybridization (e.g Multiplex RNAscope), you can skip this step.  Conversely, if you performed multi-round _in situ_ hybridization (e.g HiPlex RNAscope), utilize the [ACD BIO Registration Software](https://acdbio.com/store/rnascope-hiplex-image-registration-software.html) or ImageJ to register the TIFF image files from the multiple rounds of imaging.<br><br><br>
 
 
+
 ## 3. Generate Cellular ROIs
 
 Using the HuC/D or DAPI images that correspond to each sample, run [cellpose](https://github.com/MouseLand/cellpose) locally on your device or by utilizing a modified google colab notebook to segment each image into individual cells.  The colab notbeook is written by Pradeep Rajasekhar from the Monash Institute of Pharmaceutical Sciences and was modified for simplicity and to save all masks as a zip file. [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/11m15HUl_StmZUiZjQ2QiaEKaToWLYKn2#scrollTo=Drx_6GbEHIOj)  
 
 The output will be cellular mask files that can then be converted into ImageJ ROIs using the SCF plugin in ImageJ.
-
-First, download the SCF package in ImageJ: _Help > Update... > Manage Update Sites_.  Check the box next to SCF MPI CBG, Apply Changes, and restart ImageJ.
 
 To convert masks to ROIs, open a mask file in ImageJ and select _SCF > Segmentation > LabelMap to ROI Manager (2D)_ to get ROIs.  Select all ROIs in the ROI Manager and save. &#x2757;**_Ensure that each ROI folder matches the corresponding image title (see sample data and image below)._**
 
