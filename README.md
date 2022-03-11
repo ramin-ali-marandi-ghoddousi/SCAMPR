@@ -9,7 +9,7 @@ running the sample images and ROIs (provided) through the pipeline prior to runn
 
 1. [Fiji ImageJ](https://imagej.net/software/fiji/) and plugins:
    - SCF plugin -- To convert cellpose masks to ImageJ ROIs. To dowload plugin in ImageJ:  
-      1. Select _Help > Update... > Manage Update Sites_.  
+      1. Select _Help --> Update... --> Manage Update Sites_.  
       2. Check the box next to SCF MPI CBG.
       3. Apply changes and restart ImageJ.
 3. [R Studio Version 1.4.1717 or greater](https://www.rstudio.com/products/rstudio/)
@@ -24,13 +24,17 @@ Open each microscopy file in ImageJ and generate flattened image:  _Image > Stac
 
 - These flattened TIFF files are fed into the SCAMPR_AreaFraction.ijm macro in step 4 to quantify mRNA expression.  For this macro to run without throwing errors, the flattened TIFF image files for each tissue section must be stored in seperate folders.  Example: The flattened TIFF images from the 3-4 rounds of imaging for the first tissue section on a slide should be stored in one folder and the flattened TIFF images from the 3-4 rounds of imaging for the second tissue section should be stored in a seperate folder (see sample data and image below). Everything to the left of the " _ " in the image file name must &#x1F536; EXACTLY &#x1F536; match the name of its containing folder.<br><br><br>
 ![image](https://user-images.githubusercontent.com/64667688/157580492-5a1b7517-a712-406c-9cef-cebbe5e5d8a8.png)<br><br><br>
-- The following portions of the image file names (red) &#x1F536;**_cannot_**&#x1F536;  be changed:
+- The following portions of the image file names (in red) &#x1F536;**_cannot_**&#x1F536;  be changed:<br><br>
 
-![image](https://user-images.githubusercontent.com/64667688/153970966-b7e56ef6-a5f7-4a39-b9b0-2746af59ecba.png)
+![image](https://user-images.githubusercontent.com/64667688/153970966-b7e56ef6-a5f7-4a39-b9b0-2746af59ecba.png)<br><br><br>
 
 ## 2. Register TIFF microscopy files (optional)
 
 If you only performed single-round _in situ_ hybridization (e.g Multiplex RNAscope), you can skip this step.  Conversely, if you performed multi-round _in situ_ hybridization (e.g HiPlex RNAscope), utilize the [ACD BIO Registration Software](https://acdbio.com/store/rnascope-hiplex-image-registration-software.html) or ImageJ to register the TIFF image files from the multiple rounds of imaging.<br><br><br>
+
+To register images in ImageJ, use the _Register Virtual Stack Slices_ and _Transform Virtual Stack Slices_ (_Plugins --> Transform_) plugins and the following protocol:
+1. Organize the flattened TIFF images from the multiple rounds of imaging into seperate folders in the following manner:
+   2.    Run the _Register Virtual Stack Slices_ plugin (_Plugins --> Registration_)
 
 
 
