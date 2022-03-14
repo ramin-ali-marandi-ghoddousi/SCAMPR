@@ -32,12 +32,14 @@ Open each microscopy file in ImageJ and generate flattened image:  _Image --> St
 
 If you only performed single-round _in situ_ hybridization (e.g Multiplex RNAscope), you can skip this step.  Conversely, if you performed multi-round _in situ_ hybridization (e.g HiPlex RNAscope), utilize the [ACD BIO Registration Software](https://acdbio.com/store/rnascope-hiplex-image-registration-software.html) or ImageJ to register the TIFF image files from the multiple rounds of imaging.<br><br><br>
 
-To register images in ImageJ, use the _Register Virtual Stack Slices_ and _Transform Virtual Stack Slices_ plugins. The following protocol outlines how to do this for one tissue section (unregistered sample images are provided in the "Registration Sample" folder):
+To register images in ImageJ, use the _Register Virtual Stack Slices_ and _Transform Virtual Stack Slices_ plugins. The _Register Virtual Stack Slices_ plugin will use one of your DAPI images as an anchor and will register the DAPI images from the other rounds of imaging onto the anchor image.  It will also generate a transformation file for each DAPI registration that can then be applied to the other non-DAPI images for that round.
+
+The following protocol outlines how to do this for one tissue section (unregistered sample images are provided in the "Registration Sample" folder):
 1. Place all flattened TIFF images into a folder named Input_Images and organize them into seperate subfolders folders in the following manner:
    -  Place all DAPI images from each microscopy round into one folder.
    -  Place all other mRNA and HuCD images from all other microscopy rounds into folders corresponding to their microscopy round (i.e genes 1/2/3/4 from round 1 into a folder named Round1, genes 5/6/7/8 from microscopy round 2 into a folder named Round2, etc.)
-2. Create an Ouput_Images folder and generate subfolders where the registered DAPI and round-specific mRNA/HuCD images will be saved (i.e DAPI_Images, Round1, Round2, Round3, etc).
-3. Create a Tranformation_files folder and generate round-specific subforlders. 
+2. Create an Ouput_Images folder.  No subfolders required for this folder.
+3. Create a Tranformation_files folder and generate round-specific subfolders where the transformation files will be saved (Round1, Round2, Round3, etc).. 
 4. Run the _Register Virtual Stack Slices_ plugin (_Plugins --> Registration_)
    - Select folder with all of your DAPI input images
    - Select folder where you want your registered DAPI images to be saved
@@ -46,13 +48,16 @@ To register images in ImageJ, use the _Register Virtual Stack Slices_ and _Trans
    - Select folder where transformation matrices will be saved.
    - Select one of your DAPI input images.  All other images will be registered to this DAPI image.
    - An image stack will pop up with all of your registered DAPI images.  Scroll through to ensure that registration worked properly.
-5. Place each transformation file into appropriate subfolder.  Make copies of each transformation file in each subfolder until you have the same numeber of transformation files as you do images for that round.  For example, if you have 4 images in the Input_Images subfolder for Round1, make sure that you have 4 copies of the transformation file in the Round1 transformation subfolder.  You can name the tranformation file copies whatever you want.
+5. Place each transformation file into appropriate subfolder.  **_Make copies_** of each transformation file in each subfolder until you have the same number of transformation files as you do images for that round.  For example, if you have 4 images in the Input_Images subfolder for Round1, make sure that you have 4 copies of the transformation file in the Round1 transformation subfolder.  You can name the tranformation file copies whatever you want.
 6. Run the _Transform Virtual Stack Slices_ plugin (_Plugins --> Transform_)
-   -  
-7. The transformation process will lead to image files that are different sizes.  Resize images and crop leftover trim regions in the following manner:
+   -  Choose folder containing input images for imaging round.
+   -  Choose output folder for registered images for imaging round.
+   -  Choose folder containing tranfromtation files for imaging round.
+   -  Check _interpolate_ and run.
+7. The transformation process will can to output image files that are different sizes.  Resize images and crop leftover trim regions in the following manner:
    - Open all images together with _Image --> Stacks --> Images to Stack_ and _Copy - Upper Left_.
    - Use rectangle selection tool to set image boundary and crop using _Image --> Crop_ or _Ctrl + Shift + X_.
-   - Convert stack to individual images _Image --> Stacks --> Stack to Images_ and save as TIFF files _
+   - Convert stack to individual images (_Image --> Stacks --> Stack to Images_) and save as TIFF files (_File --> Save As --> Tiff.._).
 
 
 
