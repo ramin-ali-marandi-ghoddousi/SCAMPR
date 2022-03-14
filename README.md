@@ -38,7 +38,7 @@ The following protocol outlines how to do this for one tissue section (unregiste
 1. Place all flattened TIFF images into a folder named Input_Images and organize them into seperate subfolders folders in the following manner:
    -  Place all DAPI images from each microscopy round into one folder.
    -  Place all other mRNA and HuCD images from all other microscopy rounds into folders corresponding to their microscopy round (i.e genes 1/2/3/4 from round 1 into a folder named Round1, genes 5/6/7/8 from microscopy round 2 into a folder named Round2, etc.)
-2. Create an Ouput_Images folder.  No subfolders required for this folder.
+2. Create an Ouput_Images folder.  Create a subfolder corresponding to the name of the tissue section (see "Important Considerations" in step 1 for naming conventions).
 3. Create a Tranformation_files folder and generate round-specific subfolders where the transformation files will be saved (Round1, Round2, Round3, etc).. 
 4. Run the _Register Virtual Stack Slices_ plugin (_Plugins --> Registration_)
    - Select folder with all of your DAPI input images
@@ -55,7 +55,7 @@ The following protocol outlines how to do this for one tissue section (unregiste
    -  Choose folder containing tranfromtation files for imaging round.
    -  Check _interpolate_ and run.
 7. The transformation process will can to output image files that are different sizes.  Resize images and crop leftover trim regions in the following manner:
-   - Open all images together with _Image --> Stacks --> Images to Stack_ and _Copy - Upper Left_.
+   - Open all images together with _Image --> Stacks --> Images to Stack_, method set to _Copy (top-left)_, and _Use Titles and Labels_ checked.
    - Use rectangle selection tool to set image boundary and crop using _Image --> Crop_ or _Ctrl + Shift + X_.
    - Convert stack to individual images (_Image --> Stacks --> Stack to Images_) and save as TIFF files (_File --> Save As --> Tiff.._).
 
