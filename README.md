@@ -26,7 +26,9 @@ Open each microscopy file in ImageJ and generate flattened image:  _Image --> St
 
 ## 2. Register TIFF microscopy files (optional)
 
-If you only performed single-round _in situ_ hybridization (e.g Multiplex RNAscope), you can skip this step.  Conversely, if you performed multi-round _in situ_ hybridization (e.g HiPlex RNAscope), utilize the [ACD BIO Registration Software](https://acdbio.com/store/rnascope-hiplex-image-registration-software.html) or ImageJ to register the TIFF image files from the multiple rounds of imaging.<br><br>
+If you only performed single-round _in situ_ hybridization (e.g Multiplex RNAscope), you can skip this step.  Conversely, if you performed multi-round _in situ_ hybridization (e.g HiPlex RNAscope), utilize the [ACD BIO Registration Software](https://acdbio.com/store/rnascope-hiplex-image-registration-software.html) or ImageJ to register the TIFF image files from the multiple rounds of imaging.
+
+_**Note:** We have noticed on MacOS machines that the images produced by ACD's image registration software are not directly compatible with Cellpose. To fix this issue, open the registered images in ImageJ and re-save them to a new folder._<br><br>
 
 To register images in ImageJ, use the _Register Virtual Stack Slices_ and _Transform Virtual Stack Slices_ plugins. The _Register Virtual Stack Slices_ plugin will use one of your DAPI images as an anchor and will register the DAPI images from the other rounds of imaging onto the anchor image.  It will also generate a transformation file for each DAPI registration that can then be applied to the other non-DAPI images for that round.
 
@@ -77,10 +79,11 @@ In this step, a key file will be generated to help calculate the expression of e
 1. Flattened TIFF image files (from Step 1 or 2).
 2. ROIs for each TIFF image file (from Step 3).
 3. CSV Key file.
-    - To generate this key, run the _SCAMPR_FilenamesCSV.R_ script to generate a Key template in CSV format.  Fill in the template by opening each TIFF file in ImageJ and noting:
-    1. The ideal Rolling-ball-radius: _Process > Subtract_ Background. Hit Okay.
-    2. The upper threshold value: _Ctrl + Shift + T_. Use lower adjustement bar to change value.
+    - To generate this key, run the _SCAMPR_FilenamesCSV.R_ script to generate a template for the key in CSV format.  Fill in the template by opening each TIFF file in ImageJ and noting:
+    1. The ideal Rolling-ball-radius (rbr): _Process > Subtract_ Background. Choose a pixel value and hit check _Preview_.  Click _OK_ once you have your value.  _**Note:** We have found that a low rbr of 3-10 works well across all images.  Once you have selected an rbr for a few of the images the same value can be filled for the others_
+    2. The minimmum threshold value: _Ctrl + Shift + T_. Check _Dark background_ and use the lower adjustement bar to change value. Write down ideal minimmum threshold value and close image without applying or saving.
     3. Average particle size (optional): _Analyze > Set Measurements_ -- Check Area and Limit to Threshold. Draw a circle around an isolated mRNA particle using the Oval                selection tool and type 'M' on your keyboard.  The area will give you the number of pixels with signal.
+
 
 ##### &#x2757;&#x2757;_IMPORTANT CONSIDERATIONS_&#x2757;&#x2757;
 The names of each TIFF image file should &#x1F536; EXACTLY &#x1F536; match the names in the Image Title column in the CSV Key file.  Using the _SCAMPR_FilenamesCSV.R_ to pre-populate the CSV Key file should help ensure that this is the case.
