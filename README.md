@@ -61,7 +61,7 @@ The following protocol outlines how to do this for one tissue section.  A comple
 
 ## 3. Generate Cellular ROIs
 
-Using the HuC/D or DAPI images that correspond to each sample, run [cellpose](https://github.com/MouseLand/cellpose) locally on your device or by utilizing a modified google colab notebook to segment each image into individual cells.  The colab notbeook is written by Pradeep Rajasekhar from the Monash Institute of Pharmaceutical Sciences and was modified for simplicity and to save all masks as a zip file. [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/11m15HUl_StmZUiZjQ2QiaEKaToWLYKn2#scrollTo=Drx_6GbEHIOj)  
+Using the HuC/D or DAPI images that correspond to each sample, run [cellpose](https://github.com/MouseLand/cellpose) locally on your device or by utilizing a modified google colab notebook to segment each image into individual cells.  The colab notbeook is written by Pradeep Rajasekhar from the Monash Institute of Pharmaceutical Sciences and was modified for simplicity and to save all masks as a zip file. [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/11m15HUl_StmZUiZjQ2QiaEKaToWLYKn2#scrollTo=Nb90LCrotIx4)
 
 The output will be cellular mask files that can then be converted into ImageJ ROIs using cellpose's [imagej_roi_converter.py script](https://github.com/MouseLand/cellpose/blob/master/imagej_roi_converter.py).  We have included a copy of this script in the SCAMPR "Scripts and Macros" folder (_Cellpose_Outline_to_ROI_Converter.py_).
 
