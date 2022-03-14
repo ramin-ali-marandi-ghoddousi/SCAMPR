@@ -30,20 +30,20 @@ Open each microscopy file in ImageJ and generate flattened image:  _Image --> St
 
 ## 2. Register TIFF microscopy files (optional)
 
-If you only performed single-round _in situ_ hybridization (e.g Multiplex RNAscope), you can skip this step.  Conversely, if you performed multi-round _in situ_ hybridization (e.g HiPlex RNAscope), utilize the [ACD BIO Registration Software](https://acdbio.com/store/rnascope-hiplex-image-registration-software.html) or ImageJ to register the TIFF image files from the multiple rounds of imaging.<br><br><br>
+If you only performed single-round _in situ_ hybridization (e.g Multiplex RNAscope), you can skip this step.  Conversely, if you performed multi-round _in situ_ hybridization (e.g HiPlex RNAscope), utilize the [ACD BIO Registration Software](https://acdbio.com/store/rnascope-hiplex-image-registration-software.html) or ImageJ to register the TIFF image files from the multiple rounds of imaging.<br><br>
 
 To register images in ImageJ, use the _Register Virtual Stack Slices_ and _Transform Virtual Stack Slices_ plugins. The _Register Virtual Stack Slices_ plugin will use one of your DAPI images as an anchor and will register the DAPI images from the other rounds of imaging onto the anchor image.  It will also generate a transformation file for each DAPI registration that can then be applied to the other non-DAPI images for that round.
 
 The following protocol outlines how to do this for one tissue section (unregistered sample images are provided in the "Registration Sample" folder):
-1. Place all flattened TIFF images into a folder named Input_Images and organize them into seperate subfolders folders in the following manner:
+1. Create an Input_Images folder. Create a subfolder corresponding to the name of the tissue section (see "Important Considerations" in step 1 for naming conventions). Place all flattened TIFF images into this subfolder and organize them into seperate subfolders folders in the following manner:
    -  Place all DAPI images from each microscopy round into one folder.
    -  Place all other mRNA and HuCD images from all other microscopy rounds into folders corresponding to their microscopy round (i.e genes 1/2/3/4 from round 1 into a folder named Round1, genes 5/6/7/8 from microscopy round 2 into a folder named Round2, etc.)
 2. Create an Ouput_Images folder.  Create a subfolder corresponding to the name of the tissue section (see "Important Considerations" in step 1 for naming conventions).
-3. Create a Tranformation_files folder and generate round-specific subfolders where the transformation files will be saved (Round1, Round2, Round3, etc).. 
+3. Create a Tranformation_files folder. Create a subfolder corresponding to the name of the tissue section (see "Important Considerations" in step 1 for naming conventions). Within this subfolder, generate round-specific subfolders where the transformation files will be saved (Round1, Round2, Round3, etc).. 
 4. Run the _Register Virtual Stack Slices_ plugin (_Plugins --> Registration_)
    - Select folder with all of your DAPI input images
    - Select folder where you want your registered DAPI images to be saved
-   - Choose "Rigid" for Feature extraction model and "Elastic" for Registration Model.
+   - Choose "Affine" for Feature extraction model and "Elastic" for Registration Model.
    - Select "Save Transforms" and click OK.
    - Select folder where transformation matrices will be saved.
    - Select one of your DAPI input images.  All other images will be registered to this DAPI image.
@@ -57,7 +57,7 @@ The following protocol outlines how to do this for one tissue section (unregiste
 7. The transformation process will can to output image files that are different sizes.  Resize images and crop leftover trim regions in the following manner:
    - Open all images together with _Image --> Stacks --> Images to Stack_, method set to _Copy (top-left)_, and _Use Titles and Labels_ checked.
    - Use rectangle selection tool to set image boundary and crop using _Image --> Crop_ or _Ctrl + Shift + X_.
-   - Convert stack to individual images (_Image --> Stacks --> Stack to Images_) and save as TIFF files (_File --> Save As --> Tiff.._).
+   - Convert stack to individual images (_Image --> Stacks --> Stack to Images_) and save as TIFF files (_File --> Save As --> Tiff.._).  See "Important Considerations" in Step 1 for file and folder naming conventions.<br><br><br>
 
 
 
