@@ -7,11 +7,7 @@ running the sample images and ROIs (provided) through the pipeline prior to runn
 
 ## Required Software
 
-1. [Fiji ImageJ](https://imagej.net/software/fiji/) and plugins:
-   - SCF plugin -- To convert cellpose masks to ImageJ ROIs. To dowload plugin in ImageJ:  
-      1. Select _Help --> Update... --> Manage Update Sites_.  
-      2. Check the box next to SCF MPI CBG.
-      3. Apply changes and restart ImageJ.
+1. [Fiji ImageJ](https://imagej.net/software/fiji/)
 3. [R Studio Version 1.4.1717 or greater](https://www.rstudio.com/products/rstudio/)
 4. [R Version 1.4.0 or greater](https://www.r-project.org/)
 5. [MouseLand Cellpose](https://github.com/MouseLand/cellpose) (Download not required.  Google Colab notebook provided in Step 3)
@@ -65,9 +61,9 @@ The following protocol outlines how to do this for one tissue section (unregiste
 
 Using the HuC/D or DAPI images that correspond to each sample, run [cellpose](https://github.com/MouseLand/cellpose) locally on your device or by utilizing a modified google colab notebook to segment each image into individual cells.  The colab notbeook is written by Pradeep Rajasekhar from the Monash Institute of Pharmaceutical Sciences and was modified for simplicity and to save all masks as a zip file. [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/11m15HUl_StmZUiZjQ2QiaEKaToWLYKn2#scrollTo=Drx_6GbEHIOj)  
 
-The output will be cellular mask files that can then be converted into ImageJ ROIs using the SCF plugin in ImageJ.
+The output will be cellular mask files that can then be converted into ImageJ ROIs using cellpose's [imagej_roi_converter.py] script(https://github.com/MouseLand/cellpose/blob/master/imagej_roi_converter.py).  We have included a copy of this script in the SCAMPR Scripts and Macros folder (Cellpose_Outline_to_ROI_Converter.py).
 
-To convert masks to ROIs, open a mask file in ImageJ and select _SCF > Segmentation > LabelMap to ROI Manager (2D)_ to get ROIs.  Select all ROIs in the ROI Manager and save. &#x2757;**_Ensure that each ROI folder matches the corresponding image title (see sample data and image below)._**
+To convert Cellpose outputs ROIs, open the HuCD TIFF file as well as the Cellpose_Outline_to_ROI_Converter.py in ImageJ.  Click "Run" on the macro window, navigate to the .zip folder containing your Cellpose outputs, and select the outline.txt output file corresponding to the appropriate HuCD TIFF image file.  Select all ROIs in the ROI Manager and save. &#x2757;**_Ensure that each ROI folder matches the corresponding image title (see sample data and image below)._**
 
 ![image](https://user-images.githubusercontent.com/64667688/154147059-49c96f2a-ba9c-44aa-b73d-7608e8d1bba9.png)<br><br><br>
 
