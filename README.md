@@ -1,4 +1,5 @@
-# SCAMPR - **S**ingle-**C**ell **A**utomated **M**ultiplex **P**ipeline for **R**NA
+# SCAMPR - **S**ingle-**C**ell **A**utomated **M**ultiplex **P**ipeline for **R**NA  [![DOI](https://zenodo.org/badge/443220284.svg)](https://zenodo.org/badge/latestdoi/443220284)
+
 
 SCAMPR utilizes ImageJ macros and R scripts for quantification, spatial representation, and comparative analysis of single cell _in situ_ hybridization data.  We recommend first 
 running the sample images and ROIs (provided) through the pipeline prior to running your own. 
