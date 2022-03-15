@@ -14,9 +14,9 @@ running the sample images and ROIs (provided) through the pipeline prior to runn
 5. [MouseLand Cellpose](https://github.com/MouseLand/cellpose) (Download not required.  Google Colab notebook provided in Step 3)
 6. [XQuartz](https://www.xquartz.org/) (Only required for macOS)
 
-The best way to run SCAMPR is to download the entire repository as a ZIP file (_Code --> Dowload as ZIP_) so that you have access to all of the scripts and macros as they were writte.  Then, follow the instructions in steps 1-4 to quantify mRNA signal and scroll through the different subheadings of step 5 to run your analysis and spatial mapping of choice.<br><br>
+The best way to run SCAMPR is to download the entire repository as a ZIP file (_Code --> Dowload ZIP_) so that you have access to all of the scripts and macros as they were writte.  Then, follow the instructions in steps 1-4 to quantify mRNA signal and scroll through the different subheadings of step 5 to run your analysis and spatial mapping of choice.<br><br>
 
-![image](https://user-images.githubusercontent.com/64667688/158484223-653674a8-2f56-4e4f-a56e-06a0420e4122.png)<br><br>
+![image](https://user-images.githubusercontent.com/64667688/158484529-261429a2-f207-4eb9-a3e2-8892a6989e4e.png)<br><br>
 
 
 ## 1. Generate flattened, maximum intensity z-projections
