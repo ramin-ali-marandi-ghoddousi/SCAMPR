@@ -14,7 +14,7 @@ running the sample images and ROIs (provided) through the pipeline prior to runn
 5. [MouseLand Cellpose](https://github.com/MouseLand/cellpose) (Download not required.  Google Colab notebook provided in Step 3)
 6. [XQuartz](https://www.xquartz.org/) (Only required for macOS)<br><br>
 
-## 1. Generate flattened, maximun intensity z-projections
+## 1. Generate flattened, maximum intensity z-projections
 
 Open each microscopy file in ImageJ and generate flattened image:  _Image --> Stacks --> Z Project..._.  Select  _Maximum Intensity_ for projection type.  Split the different channels in the stack into seperate seperate images (_Image --> Color --> Split Channels_) and save flattened image as TIFF file.<br><br><br>
 ##### &#x2757;&#x2757;_IMPORTANT CONSIDERATIONS_&#x2757;&#x2757;
@@ -82,7 +82,7 @@ In this step, a key file will be generated to help calculate the expression of e
 3. CSV Key file.
     - To generate this key, run the _SCAMPR_FilenamesCSV.R_ script to generate a template for the key in CSV format.  Fill in the template by opening each TIFF file in ImageJ and noting:
     1. The ideal Rolling-ball-radius (rbr): _Process > Subtract_ Background. Choose a pixel value and hit check _Preview_.  Click _OK_ once you have your value.  _**Note:** We have found that a low rbr of 3-10 works well across all images.  Once you have selected an rbr for a few of the images the same value can be filled for the others_
-    2. The minimmum threshold value: _Ctrl + Shift + T_. Check _Dark background_ and use the lower adjustement bar to change value. Write down ideal minimmum threshold value and close image without applying or saving.
+    2. The minimum threshold value: _Ctrl + Shift + T_. Check _Dark background_ and use the lower adjustement bar to change value. Write down ideal minimum threshold value and close image without applying or saving.
     3. Average particle size (optional): _Analyze > Set Measurements_ -- Check Area and Limit to Threshold. Draw a circle around an isolated mRNA particle using the Oval                selection tool and type 'M' on your keyboard.  The area will give you the number of pixels with signal.
 
 
