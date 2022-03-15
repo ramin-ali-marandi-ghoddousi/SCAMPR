@@ -6,13 +6,15 @@ running the sample images and ROIs (provided) through the pipeline prior to runn
 
 ![image](https://user-images.githubusercontent.com/64667688/154179103-586c8f7d-3bc2-44eb-81bc-4ba6cda1a6f8.png)<br><br><br>
 
-## Required Software
+## Required Software and GitHub Instructions
 
 1. [Fiji ImageJ](https://imagej.net/software/fiji/)
 3. [R Studio Version 1.4.1717 or greater](https://www.rstudio.com/products/rstudio/)
 4. [R Version 1.4.0 or greater](https://www.r-project.org/)
 5. [MouseLand Cellpose](https://github.com/MouseLand/cellpose) (Download not required.  Google Colab notebook provided in Step 3)
-6. [XQuartz](https://www.xquartz.org/) (Only required for macOS)<br><br>
+6. [XQuartz](https://www.xquartz.org/) (Only required for macOS)
+
+The best way to run SCAMPR is to download the entire repository so that you have access to all of the scripts and macros as they were writte.  Then, follow the instructions in steps 1-4 to quantify mRNA signal and scroll through the different subheadings of step 5 to run your analysis and spatial mapping of choice<br><br>
 
 ## 1. Generate flattened, maximum intensity z-projections
 
