@@ -21,7 +21,7 @@ The best way to run SCAMPR is to download the entire repository as a ZIP file (_
 
 ## 1. Generate flattened, maximum intensity z-projections
 
-Open each microscopy file in ImageJ and generate flattened image:  _Image --> Stacks --> Z Project..._.  Select  _Maximum Intensity_ for projection type.  Split the different channels in the stack into seperate seperate images (_Image --> Color --> Split Channels_) and save flattened image as TIFF file.<br><br><br>
+Open each microscopy file in ImageJ and generate flattened images:  _Image --> Stacks --> Z Project..._.  Select  _Maximum Intensity_ for projection type.  Split the different channels in the stack into separate images (_Image --> Color --> Split Channels_) and save flattened images as TIFF files.<br><br><br>
 ##### &#x2757;&#x2757;_IMPORTANT CONSIDERATIONS_&#x2757;&#x2757;
 
 - These flattened TIFF files are fed into the SCAMPR_AreaFraction.ijm macro in step 4 to quantify mRNA expression.  For this macro to run without throwing errors, the flattened TIFF image files for each tissue section must be stored in seperate folders.  Example: The flattened TIFF images from the 3-4 rounds of imaging for the first tissue section on a slide should be stored in one folder and the flattened TIFF images from the 3-4 rounds of imaging for the second tissue section should be stored in a seperate folder (see sample data and image below). Everything to the left of the " _ " in the image file name must &#x1F536; EXACTLY &#x1F536; match the name of its containing folder.<br><br><br>
@@ -39,7 +39,7 @@ _**Note:** We have noticed on MacOS machines that the images produced by ACD's i
 To register images in ImageJ, use the _Register Virtual Stack Slices_ and _Transform Virtual Stack Slices_ plugins. The _Register Virtual Stack Slices_ plugin will use one of your DAPI images as an anchor and will register the DAPI images from the other rounds of imaging onto the anchor image.  It will also generate a transformation file for each DAPI registration that can then be applied to the other non-DAPI images for that round.
 
 The following protocol outlines how to do this for one tissue section.  A completed example is provided in the _Sample_Registration_Completed_ folder to help organize your folders and subfolders.  In addition, sample images are provided in the _Sample_Registration_Practice_ folder and can be run through the below pipeline prior to running your own data.  The contents of the _Sample_Registration_Practice_ folder after it has gone through the pipeline should match the contents of the _Sample_Registration_Practice_ folder:
-1. Create an Input_Images folder. Create a subfolder corresponding to the name of the tissue section (see "Important Considerations" in step 1 for naming conventions). Place all flattened TIFF images into this subfolder and organize them into seperate subfolders folders in the following manner:
+1. Create an Input_Images folder. Create a subfolder corresponding to the name of the tissue section (see "Important Considerations" in step 1 for naming conventions). Place all flattened TIFF images into this subfolder and organize them into separate subfolders in the following manner:
    -  Place all DAPI images from each microscopy round into one folder.
    -  Place all other mRNA and HuCD images from all other microscopy rounds into folders corresponding to their microscopy round (i.e genes 1/2/3/4 from round 1 into a folder named Round1, genes 5/6/7/8 from microscopy round 2 into a folder named Round2, etc.)
 2. Create an Ouput_Images folder.  Create a subfolder corresponding to the name of the tissue section (see "Important Considerations" in step 1 for naming conventions).
@@ -52,13 +52,13 @@ The following protocol outlines how to do this for one tissue section.  A comple
    - Select folder where transformation matrices will be saved.
    - Select one of your DAPI input images.  All other images will be registered to this DAPI image.
    - An image stack will pop up with all of your registered DAPI images.  Scroll through to ensure that registration worked properly.
-5. Place each transformation file into appropriate subfolder.  **_Make copies_** of each transformation file in each subfolder until you have the same number of transformation files as you do images for that round.  For example, if you have 4 images in the Input_Images subfolder for Round1, make sure that you have 4 copies of the transformation file in the Round1 transformation subfolder.  You can name the tranformation file copies whatever you want.
+5. Place each transformation file into its appropriate subfolder.  **_Make copies_** of each transformation file in each subfolder until you have the same number of transformation files as you do images for that round.  For example, if you have 4 images in the Input_Images subfolder for Round1, make sure that you have 4 copies of the transformation file in the Round1 transformation subfolder.  You can name the tranformation file copies whatever you want.
 6. Run the _Transform Virtual Stack Slices_ plugin (_Plugins --> Transform_)
    -  Choose folder containing input images for imaging round.
    -  Choose output folder for registered images for imaging round.
    -  Choose folder containing tranfromtation files for imaging round.
    -  Check _interpolate_ and run.
-7. The transformation process will can to output image files that are different sizes.  Resize images and crop leftover trim regions in the following manner:
+7. The transformation process can output image files that are different sizes. Resize images and crop leftover trim regions in the following manner:
    - Open all images together with _Image --> Stacks --> Images to Stack_, method set to _Copy (top-left)_, and _Use Titles and Labels_ checked.
    - Use rectangle selection tool to set image boundary and crop using _Image --> Crop_ or _Ctrl + Shift + X_.
    - Convert stack to individual images (_Image --> Stacks --> Stack to Images_) and save as TIFF files (_File --> Save As --> Tiff.._).  See "Important Considerations" in Step 1 for file and folder naming conventions.<br><br><br>
@@ -71,7 +71,7 @@ Using the HuC/D or DAPI images that correspond to each sample, run [cellpose](ht
 
 The output will be cellular mask files that can then be converted into ImageJ ROIs using cellpose's [imagej_roi_converter.py script](https://github.com/MouseLand/cellpose/blob/master/imagej_roi_converter.py).  We have included a copy of this script in the SCAMPR "Scripts and Macros" folder (_Cellpose_Outline_to_ROI_Converter.py_).
 
-To convert Cellpose outputs ROIs, open the HuCD TIFF file as well as the _Cellpose_Outline_to_ROI_Converter.py_ script in ImageJ.  Click "Run" on the macro window, navigate to the .zip folder containing your Cellpose outputs, and select the outline.txt output file corresponding to the appropriate HuCD TIFF image file.  Select all ROIs in the ROI Manager and save. &#x2757;**_Ensure that each ROI folder matches the corresponding image title (see sample data and image below)._**
+To convert Cellpose outputs to ROIs, open the HuCD TIFF file as well as the _Cellpose_Outline_to_ROI_Converter.py_ script in ImageJ.  Click "Run" on the macro window, navigate to the .zip folder containing your Cellpose outputs, and select the outline.txt output file corresponding to the appropriate HuCD TIFF image file.  Select all ROIs in the ROI Manager and save. &#x2757;**_Ensure that each ROI folder matches the corresponding image title (see sample data and image below)._**
 
 ![image](https://user-images.githubusercontent.com/64667688/154147059-49c96f2a-ba9c-44aa-b73d-7608e8d1bba9.png)<br><br><br>
 
@@ -133,9 +133,9 @@ Generate normalized gene expression violin plots and map these gene expression v
 | ![image](https://user-images.githubusercontent.com/64667688/153976379-5d37f1a0-0fe6-433a-80b3-33c367b859a7.png) | ![image](https://user-images.githubusercontent.com/64667688/153976355-e65d5950-e214-436b-9071-d90723b09d97.png) |
 
 <br><br>
-### Heirarchical Clustering and Cluster Spatial Topomaps
+### Hierarchical Clustering and Cluster Spatial Topomaps
 
-Perform heirarchical clustering on data, compare gene expression and cell size across different clustering, and map clusters back onto the tissue.
+Perform hierarchical clustering on data, compare gene expression and cell size across different clusters, and map clusters back onto the tissue.
 
 #### Required Data
 
