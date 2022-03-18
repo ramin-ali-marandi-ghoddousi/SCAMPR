@@ -214,7 +214,7 @@ Generate cell-type specific subsets of data, then compare pairwise correlation, 
 
 | SCAMPR_LoessScatterplotComparisons.R | SCAMPR_MeanComparisonsCellTypes.R  |  SCAMPR_PercentCellsComparisonsCellTypes.R |
 |  --- |  ---  |  ---  |
-| ![image](https://user-images.githubusercontent.com/64667688/154170184-cc3ee472-3b42-49f2-b519-bd056605078b.png) | ![image](https://user-images.githubusercontent.com/64667688/154169047-9d29d1f6-3ba8-4104-beea-28bb3571e5c3.png) | ![image](https://user-images.githubusercontent.com/64667688/154172852-a16a13ee-8e06-45a1-8325-5bbbf72c151b.png) |
+| ![image](https://user-images.githubusercontent.com/64667688/154170184-cc3ee472-3b42-49f2-b519-bd056605078b.png) | ![image](https://user-images.githubusercontent.com/64667688/154169047-9d29d1f6-3ba8-4104-beea-28bb3571e5c3.png) | ![image](https://user-images.githubusercontent.com/64667688/159094409-088efbeb-f709-4627-a351-9e1e3a62c7fd.png) |
 
 
 
