@@ -52,11 +52,11 @@ The following protocol outlines how to do this for one tissue section.  A comple
    - Select folder where transformation matrices will be saved.
    - Select one of your DAPI input images.  All other images will be registered to this DAPI image.
    - An image stack will pop up with all of your registered DAPI images.  Scroll through to ensure that registration worked properly.
-5. Place each transformation file into its appropriate subfolder.  **_Make copies_** of each transformation file in each subfolder until you have the same number of transformation files as you do images for that round.  For example, if you have 4 images in the Input_Images subfolder for Round1, make sure that you have 4 copies of the transformation file in the Round1 transformation subfolder.  You can name the tranformation file copies whatever you want.
+5. Place each transformation file into its appropriate subfolder.  **_Make copies_** of each transformation file in each subfolder until you have the same number of transformation files as you do images for that round.  For example, if you have 4 images in the Input_Images subfolder for Round1, make sure that you have 4 copies of the transformation file in the Round1 transformation subfolder.  You can name the transformation file copies whatever you want.
 6. Run the _Transform Virtual Stack Slices_ plugin (_Plugins --> Transform_)
    -  Choose folder containing input images for imaging round.
    -  Choose output folder for registered images for imaging round.
-   -  Choose folder containing tranfromtation files for imaging round.
+   -  Choose folder containing transformation files for imaging round.
    -  Check _interpolate_ and run.
 7. The transformation process can output image files that are different sizes. Resize images and crop leftover trim regions in the following manner:
    - Open all images together with _Image --> Stacks --> Images to Stack_, method set to _Copy (top-left)_, and _Use Titles and Labels_ checked.
