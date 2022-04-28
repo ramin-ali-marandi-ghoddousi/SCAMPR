@@ -85,7 +85,7 @@ In this step, a key file will be generated to help calculate the expression of e
 1. Flattened TIFF image files (from Step 1 or 2).
 2. ROIs for each TIFF image file (from Step 3).
 3. CSV Key file.
-    - To generate this key, run the _SCAMPR_FilenamesCSV.R_ script to generate a template for the key in CSV format.  Fill in the template by opening each TIFF file in ImageJ and noting:
+    - To generate this key, run the _SCAMPR_FilenamesCSV.R_ script in R Studio to generate a template for the key in CSV format.  Fill in the template by opening each TIFF file in ImageJ and noting:
     1. The ideal Rolling-ball-radius (rbr): _Process > Subtract_ Background. Choose a pixel value and hit check _Preview_.  Click _OK_ once you have your value.  _**Note:** We have found that a low rbr of 3-10 works well across all images.  Once you have selected an rbr for a few of the images the same value can be filled for the others_
     2. The minimum threshold value: _Ctrl + Shift + T_. Check _Dark background_ and use the lower adjustement bar to change value. Write down ideal minimum threshold value and close image without applying or saving.
     3. Average particle size (optional): _Analyze > Set Measurements_ -- Check Area and Limit to Threshold. Draw a circle around an isolated mRNA particle using the Oval                selection tool and type 'M' on your keyboard.  The area will give you the number of pixels with signal.
