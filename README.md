@@ -94,6 +94,7 @@ In this step, a key file will be generated to help calculate the expression of e
 ##### &#x2757;&#x2757;_IMPORTANT CONSIDERATIONS_&#x2757;&#x2757;
 The names of each TIFF image file should &#x1F536; EXACTLY &#x1F536; match the names in the Image Title column in the CSV Key file.  Using the _SCAMPR_FilenamesCSV.R_ to pre-populate the CSV Key file should help ensure that this is the case.
 
+Once you have the flattened TIFF image files, the ROIs for each image file, and the CSV key file, drag the SCAMPR_AreaFraction.ijm into FIJI IMageJ and run it to calculate gene expression.
 
 #### Required Code:
 
