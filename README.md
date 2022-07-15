@@ -85,21 +85,37 @@ In this step, a key file will be generated to help calculate the expression of e
 1. Flattened TIFF image files (from Step 1 or 2).
 2. ROIs for each TIFF image file (from Step 3).
 3. CSV Key file.
+    
+    This Key file can be generated in two ways: 1) Manually, 2) or in a semiautomated manner in ImageJ.  Manual generation of the key can lead to user-related bias, which can be mitigated with proper blinding.  The semiautomated method is less prone to user error but may be less accurate for low-intensity images in some datasets.  Descriptions on how to generate the key for both methods are outlined below.
+    
+       Semiautomated Key Generation and Gene Expression Quantification
+   - To generate this key, run SCAMPR_AreaFraction_SemiAuto.ijm. There are some options that can be changed and sections that require user input:
+   1. The default rbr for processing is set to 1 and can be changed in line 10 of the code ("ExerRBR = ").
+   2. The image with the highest average intensity will be identified (Representative Image).  The script will the user to choose the location of that image.
+   3. Two copies of Representative Image will be opened by the script.  The one is white is the ground truth, and the one in red is the image that the user will used to adjust and identify the ideal threshold.  Place both images side-by-side and use the zoom tool to zoom in ALL THE WAY onto one cell in both images.  Then use the threshold adjustment bar to find the ideal threshold.  Remember this number. Click OK.
+   ![image](https://user-images.githubusercontent.com/64667688/179127400-1be7261b-f311-4a66-80ce-d35df9bd05bb.png)
+
+   4. Input the threshold identified in the prior step into the box.
+   5. SCAMPR quantifies gene expression as the percentage of pixels in a cell that are positive for signal.  This is later converted to the number of pixels in each cell that are positive for signal.  SCAMPR also allows for the option of estimating the numper of particles in each cell by dividing the number of pixels by an average particle size. The default average particle size is set to 1 for ALL images by default.  If you want to properly estimate the number of particles in each cell, find the Key.csv file, open each individual image, remove background (_Process > Subtract_ Background, rbr = 1) and threshold (_Ctrl + Shift + T_) using the corrected threshold value in the key, zoom in on 2-3 random "spots", average the number of pixels comprising the spots, and input this number into the Key.csv file. The click OK.
+   6. After the script runs, to ensure that proper threshold values were generated, test the values from the Key.csv file on some of the low signal intensity images towards the top of the file.  Make sure to remove background prior to checking thresholding values.
+   
+   No further step is required as this script will generate the Key, then use that key to quantify signal for each ROI in each image.  The output will be two csv files with %Area gene expression counts for each gene in each cell.
+    
+    Manual Key Generation and Gene Expression Quantification
     - To generate this key, run the _SCAMPR_FilenamesCSV.R_ script in R Studio to generate a template for the key in CSV format.  Fill in the template by opening each TIFF file in ImageJ and noting:
-    1. The ideal Rolling-ball-radius (rbr): _Process > Subtract_ Background. Choose a pixel value and hit check _Preview_.  Click _OK_ once you have your value.  _**Note:** We have found that a low rbr of 3-10 works well across all images.  Once you have selected an rbr for a few of the images the same value can be filled for the others_
+    1. The ideal Rolling-ball-radius (rbr): _Process > Subtract_ Background. Choose a pixel value and hit check _Preview_.  Click _OK_ once you have your value.  _**Note:** We have found that a low rbr of 1 works well across all images.  Once you have selected an rbr for a few of the images the same value can be filled for the others_
     2. The minimum threshold value: _Ctrl + Shift + T_. Check _Dark background_ and use the lower adjustement bar to change value. Write down ideal minimum threshold value and close image without applying or saving.
     3. Average particle size (optional): _Analyze > Set Measurements_ -- Check Area and Limit to Threshold. Draw a circle around an isolated mRNA particle using the Oval                selection tool and type 'M' on your keyboard.  The area will give you the number of pixels with signal.
 
-
-##### &#x2757;&#x2757;_IMPORTANT CONSIDERATIONS_&#x2757;&#x2757;
+   
+##### &#x2757;&#x2757;_IMPORTANT CONSIDERATIONS FOR MANUAL KEY GENERATION_&#x2757;&#x2757;
 The names of each TIFF image file should &#x1F536; EXACTLY &#x1F536; match the names in the Image Title column in the CSV Key file.  Using the _SCAMPR_FilenamesCSV.R_ to pre-populate the CSV Key file should help ensure that this is the case.
-
-Once you have the flattened TIFF image files, the ROIs for each image file, and the CSV key file, drag the SCAMPR_AreaFraction.ijm into FIJI IMageJ and run it to calculate gene expression.
+Once you have the flattened TIFF image files, the ROIs for each image file, and the CSV key file, drag the SCAMPR_AreaFraction.ijm (for manually generated Key)  into FIJI ImageJ and run it to calculate gene expression.
 
 #### Required Code:
 
 1. SCAMPR_FilenamesCSV.R
-2. SCAMPR_AreaFraction.ijm
+2. SCAMPR_AreaFraction.ijm or SCAMPR_AreaFraction_SemiAuto.ijm
 
 
 #### Outputs:
