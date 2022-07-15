@@ -87,9 +87,9 @@ In this step, a key file will be generated to help calculate the expression of e
 2. ROIs for each TIFF image file (from Step 3).
 3. CSV Key file.
     
-    This Key file can be generated in two ways: 1) Manually, 2) or in a semiautomated manner in ImageJ.  Manual generation of the key can lead to user-related bias, which can be mitigated with proper blinding.  The semiautomated method is less prone to user error but may be less accurate for low-intensity images in some datasets.  Descriptions on how to generate the key for both methods are outlined below:
+    This Key file can be generated in two ways: 1) Manually, 2) or in a semiautomated manner in ImageJ.  Manual generation of the key can lead to user-related bias, which can be mitigated with proper blinding.  The semiautomated method is less prone to user error but may be less accurate for low-intensity images in some datasets.  Descriptions on how to generate the key for both methods are outlined below:<br>
     
-   -- Semiautomated Key Generation and Gene Expression Quantification --
+   ------------------------------- Semiautomated Key Generation and Gene Expression Quantification -------------------------------
     
    To generate this key, run SCAMPR_AreaFraction_SemiAuto.ijm. There are some options that can be changed and sections that require user input:
    
@@ -102,9 +102,9 @@ In this step, a key file will be generated to help calculate the expression of e
    5. SCAMPR quantifies gene expression as the percentage of pixels in a cell that are positive for signal.  This is later converted to the number of pixels in each cell that are positive for signal.  SCAMPR also allows for the option of estimating the numper of particles in each cell by dividing the number of pixels by an average particle size. The default average particle size is set to 1 for ALL images by default.  If you want to properly estimate the number of particles in each cell, find the Key.csv file, open each individual image, remove background (_Process > Subtract_ Background, rbr = 1) and threshold (_Ctrl + Shift + T_) using the corrected threshold value in the key, zoom in on 2-3 random "spots", average the number of pixels comprising the spots, and input this number into the Key.csv file. The click OK.
    6. After the script runs, to ensure that proper threshold values were generated, test the values from the Key.csv file on some of the low signal intensity images towards the top of the file.  Make sure to remove background prior to checking thresholding values.
    
-   No further step is required as this script will generate the Key, then use that key to quantify signal for each ROI in each image.  The output will be two csv files with %Area gene expression counts for each gene in each cell.
+   No further step is required as this script will generate the Key, then use that key to quantify signal for each ROI in each image.  The output will be two csv files with %Area gene expression counts for each gene in each cell.<br>
     
-   -- Manual Key Generation and Gene Expression Quantification --
+   ------------------------------- Manual Key Generation and Gene Expression Quantification -------------------------------
     
     To generate this key, run the _SCAMPR_FilenamesCSV.R_ script in R Studio to generate a template for the key in CSV format.  Fill in the template by opening each TIFF file in ImageJ and noting:
     1. The ideal Rolling-ball-radius (rbr): _Process > Subtract_ Background. Choose a pixel value and hit check _Preview_.  Click _OK_ once you have your value.  _**Note:** We have found that a low rbr of 1 works well across all images.  Once you have selected an rbr for a few of the images the same value can be filled for the others_
