@@ -89,12 +89,12 @@ In this step, a key file will be generated to help calculate the expression of e
     
     This Key file can be generated in two ways: 1) Manually, 2) or in a semiautomated manner in ImageJ.  Manual generation of the key can lead to user-related bias, which can be mitigated with proper blinding.  The semiautomated method is less prone to user error but may be less accurate for low-intensity images in some datasets.  Descriptions on how to generate the key for both methods are outlined below:
     
-   Semiautomated Key Generation and Gene Expression Quantification
+   <u> Semiautomated Key Generation and Gene Expression Quantification <u>
     
    To generate this key, run SCAMPR_AreaFraction_SemiAuto.ijm. There are some options that can be changed and sections that require user input:
    
    1. The default rbr for processing is set to 1 and can be changed in line 10 of the code ("ExerRBR = ").
-   2. The image with the highest average intensity will be identified (Representative Image).  The script will the user to choose the location of that image.
+   2. The image with the highest average intensity will be identified (Representative Image).  The script will ask the user to choose the location of that image.
    3. Two copies of Representative Image will be opened by the script.  The one is white is the ground truth, and the one in red is the image that the user will used to adjust and identify the ideal threshold.  Place both images side-by-side and use the zoom tool to zoom in ALL THE WAY onto one cell in both images.  Then use the threshold adjustment bar to find the ideal threshold.  Remember this number. Click OK.
    ![image](https://user-images.githubusercontent.com/64667688/179127400-1be7261b-f311-4a66-80ce-d35df9bd05bb.png)
 
@@ -104,7 +104,8 @@ In this step, a key file will be generated to help calculate the expression of e
    
    No further step is required as this script will generate the Key, then use that key to quantify signal for each ROI in each image.  The output will be two csv files with %Area gene expression counts for each gene in each cell.
     
-    Manual Key Generation and Gene Expression Quantification
+   <u> Manual Key Generation and Gene Expression Quantification <u>
+    
     To generate this key, run the _SCAMPR_FilenamesCSV.R_ script in R Studio to generate a template for the key in CSV format.  Fill in the template by opening each TIFF file in ImageJ and noting:
     1. The ideal Rolling-ball-radius (rbr): _Process > Subtract_ Background. Choose a pixel value and hit check _Preview_.  Click _OK_ once you have your value.  _**Note:** We have found that a low rbr of 1 works well across all images.  Once you have selected an rbr for a few of the images the same value can be filled for the others_
     2. The minimum threshold value: _Ctrl + Shift + T_. Check _Dark background_ and use the lower adjustement bar to change value. Write down ideal minimum threshold value and close image without applying or saving.
