@@ -62,7 +62,8 @@ The following protocol outlines how to do this for one tissue section.  A comple
 7. The transformation process can output image files that are different sizes. Resize images and crop leftover trim regions in the following manner:
    - Open all images together with _Image --> Stacks --> Images to Stack_, method set to _Copy (top-left)_, and _Use Titles and Labels_ checked.
    - Use rectangle selection tool to set image boundary and crop using _Image --> Crop_ or _Ctrl + Shift + X_.
-   - Convert stack to individual images (_Image --> Stacks --> Stack to Images_) and save as TIFF files (_File --> Save As --> Tiff.._).  See "Important Considerations" in Step 1 for file and folder naming conventions.<br><br><br>
+   - Convert stack to individual images (_Image --> Stacks --> Stack to Images_) and save as TIFF files (_File --> Save As --> Tiff.._).  
+8. If necessary, change each individual image titles to match the required naming conventions.  See "Important Considerations" in Step 1 for file and folder naming conventions.<br><br><br>
 
 
 
