@@ -82,6 +82,8 @@ To convert Cellpose outputs to ROIs, open the HuCD TIFF file as well as the _Cel
 
 In this step, a key file will be generated to help calculate the expression of each gene in each cellular ROI.  Gene expression is calculated as an area-fraction (the percent of a cellular ROI that contains fluorescent signal).  These expression values can be used as-is during the data visualization and analyses in Step 4, or can be converted into a value representing the number of pixels or ums that are positive for a fluorescent signal.  This conversion will take place in the R scripts used for visualization and analysis.
 
+_Note:  We highly recommend that the user run the macro on the Sample Data first to gain familiarity with the process before proceeding with their own datasest._
+
 #### Required Data
 
 1. Flattened TIFF image files (from Step 1 or 2).
