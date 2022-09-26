@@ -1,6 +1,6 @@
 # SCAMPR - **S**ingle-**C**ell **A**utomated **M**ultiplex **P**ipeline for **R**NA  [![DOI](https://zenodo.org/badge/443220284.svg)](https://zenodo.org/badge/latestdoi/443220284)
 
-LAST UPDATED: 07/14/2022
+LAST UPDATED: 09/26/2022
 
 SCAMPR utilizes ImageJ macros and R scripts for quantification, spatial representation, and comparative analysis of single cell _in situ_ hybridization data.  We recommend first 
 running the sample images and ROIs (provided) through the pipeline prior to running your own. 
@@ -93,7 +93,7 @@ In this step, a key file will be generated to help calculate the expression of e
     
    ----------------------- Semiautomated Key Generation and Gene Expression Quantification -----------------------
     
-   To generate this key, run SCAMPR_AreaFraction_SemiAuto.ijm. _**Make sure to remove all DAPI or HuCD images from the Image folder prior to running the macro**_
+   To generate this key, run SCAMPR_AreaFraction_SemiAuto.ijm. &#x2757;&#x2757;_**Make sure to remove all DAPI or HuCD images from the Image folder prior to running the macro**_&#x2757;&#x2757;
    There are some options that can be changed and sections that require user input:
    
    1. The default rbr for processing is set to 1 and can be changed in line 10 of the code ("ExerRBR = ").
