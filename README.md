@@ -93,7 +93,7 @@ In this step, a key file will be generated to help calculate the expression of e
     
    ----------------------- Semiautomated Key Generation and Gene Expression Quantification -----------------------
     
-   To generate this key, run SCAMPR_AreaFraction_SemiAuto.ijm. &#x2757;_**Make sure to remove all DAPI or HuCD images from the Image folder prior to running the macro**_&#x2757;
+   To generate this key, run SCAMPR_AreaFraction_SemiAuto.ijm. &#x2757;_**Make sure to remove all non-mRNA images (DAPImHuCD,etc) from the Image folder prior to running the macro**_&#x2757;
    
    There are some options that can be changed and sections that require user input:
    
