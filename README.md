@@ -1,7 +1,7 @@
 # SCAMPR - **S**ingle-**C**ell **A**utomated **M**ultiplex **P**ipeline for **R**NA  [![DOI](https://zenodo.org/badge/443220284.svg)](https://zenodo.org/badge/latestdoi/443220284)
 
 Please cite the following publication if utilizing SCAMPR: 
-[Ali Marandi Ghoddousi, R., Magalong, V., Kamitakahara, A., & Levitt, P. SCAMPR: Single-Cell Automated Multiplex Pipeline for RNA Quantification and Spatial Mapping.](https://www.cell.com/cell-reports-methods/fulltext/S2667-2375(22)00206-5#%20) 
+[Ali Marandi Ghoddousi et al., 2022, Cell Reports Methods 2, 100316 October 24, 2022. https://doi.org/10.1016/j.crmeth.2022.100316](https://www.cell.com/cell-reports-methods/fulltext/S2667-2375(22)00206-5#%20) 
 
 LAST UPDATED: 09/26/2022
 
