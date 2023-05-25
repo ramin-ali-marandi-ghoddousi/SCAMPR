@@ -65,7 +65,7 @@ dim(Raw.Data)
 Raw.Data$Group <- Raw.Data$Animal_ID
 head(Raw.Data)
 
-Raw.Data$Group <- mgsub(string = Raw.Data$Group, pattern = Group1, replacement = rep(Group1name,length(Group2))) # Sub group1 name for group 1 animal id's
+Raw.Data$Group <- mgsub(string = Raw.Data$Group, pattern = Group1, replacement = rep(Group1name,length(Group1))) # Sub group1 name for group 1 animal id's
 Raw.Data$Group <- mgsub(string = Raw.Data$Group, pattern = Group2, replacement = rep(Group2name,length(Group2))) # Sub group2 name for group 2 animal id's
 
 head(Raw.Data)
