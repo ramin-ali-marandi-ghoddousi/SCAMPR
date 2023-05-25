@@ -1,3 +1,4 @@
+
 from ij import IJ
 from ij.plugin.frame import RoiManager
 from ij.gui import PolygonRoi
@@ -14,7 +15,17 @@ rm = RM.getRoiManager()
 
 imp = IJ.getImage()
 
+result = ""
+with open(file_name, "r+") as file:
+    for line in file:
+        if not line.isspace():
+            result += line
+ 
+    file.seek(0)  
+    file.write(result)
+
 textfile = open(file_name, "r")
+
 for line in textfile:
     xy = map(int, line.rstrip().split(","))
     X = xy[::2]
