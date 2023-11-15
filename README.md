@@ -43,11 +43,9 @@ _**Note:** We have noticed on MacOS machines that the images produced by ACD's i
 To register images in ImageJ, use the _Register Virtual Stack Slices_ and _Transform Virtual Stack Slices_ plugins. The _Register Virtual Stack Slices_ plugin will use one of your DAPI images as an anchor and will register the DAPI images from the other rounds of imaging onto the anchor image.  It will also generate a transformation file for each DAPI registration that can then be applied to the other non-DAPI images for that round.
 
 The following protocol outlines how to do this for one tissue section.  A completed example is provided in the _Sample_Registration_Completed_ folder to help organize your folders and subfolders.  In addition, sample images are provided in the _Sample_Registration_Practice_ folder and can be run through the below pipeline prior to running your own data.  The contents of the _Sample_Registration_Practice_ folder after it has gone through the pipeline should match the contents of the _Sample_Registration_Practice_ folder:
-1. Create an Input_Images folder. Create a subfolder corresponding to the name of the tissue section (see "Important Considerations" in step 1 for naming conventions). Place all flattened TIFF images into this subfolder and organize them into separate subfolders in the following manner:
-   -  Place all DAPI images from each microscopy round into one folder.
-   -  Place all other mRNA and HuCD images from all other microscopy rounds into folders corresponding to their microscopy round (i.e genes 1/2/3/4 from round 1 into a folder named Round1, genes 5/6/7/8 from microscopy round 2 into a folder named Round2, etc.)
-2. Create an Ouput_Images folder.  Create a subfolder corresponding to the name of the tissue section (see "Important Considerations" in step 1 for naming conventions).
-3. Create a Tranformation_files folder. Create a subfolder corresponding to the name of the tissue section (see "Important Considerations" in step 1 for naming conventions). Within this subfolder, generate round-specific subfolders where the transformation files will be saved (Round1, Round2, Round3, etc).. 
+1. Create an Input_Images folder. Create a subfolder corresponding to the name of the tissue section (see "Important Considerations" in step 1 for naming conventions). Place all flattened TIFF images into this subfolder.  Create a seperate subfolder with just the DAPI images from all rounds.
+2. Create an Ouput_Images folder.  Create a subfolder corresponding to the name of the tissue section (see "Important Considerations" in step 1 for naming conventions). This is where your final registered images will be saved.
+3. Create a Tranformation_files folder. Create a subfolder corresponding to the name of the tissue section (see "Important Considerations" in step 1 for naming conventions). This is where your transformation files from the registration will be saved, copied, and renamed.
 4. Run the _Register Virtual Stack Slices_ plugin (_Plugins --> Registration_)
    - Select folder with all of your DAPI input images
    - Select folder where you want your registered DAPI images to be saved
@@ -56,17 +54,17 @@ The following protocol outlines how to do this for one tissue section.  A comple
    - Select folder where transformation matrices will be saved.
    - Select one of your DAPI input images.  All other images will be registered to this DAPI image.
    - An image stack will pop up with all of your registered DAPI images.  Scroll through to ensure that registration worked properly.
-5. Place each transformation file into its appropriate subfolder.  **_Make copies_** of each transformation file in each subfolder until you have the same number of transformation files as you do images for that round.  For example, if you have 4 images in the Input_Images subfolder for Round1, make sure that you have 4 copies of the transformation file in the Round1 transformation subfolder.  You can name the transformation file copies whatever you want.
-6. Run the _Transform Virtual Stack Slices_ plugin (_Plugins --> Transform_)
+5. Place each transformation file into its appropriate subfolder.  **_Make copies_** of each transformation file in each subfolder until you have the same number of transformation files as you do images for that round.  For example, if you have 3 mRNA images that correspond to the T0-dapi image, make sure that you make 3 copies of the T0-dapi transformation file (see image below).
+6. Rename each copy of the transformation files to match the image name that it corresponds to.  For example, if the T0-dapi file corresponds to the T1-met, T2-met, and T3-rorb mRNA channels, rename the three copies of the T0-dapi transformation file to T1-met, T2-met, and T3-rorb (see image below).  
+![image](https://github.com/ramin-ali-marandi-ghoddousi/SCAMPR/assets/64667688/54e57ddb-7de2-4828-ada7-37dbcd134200)
+
+7. Run the _Transform Virtual Stack Slices_ plugin (_Plugins --> Transform_)
    -  Choose folder containing input images for imaging round.
-   -  Choose output folder for registered images for imaging round.
-   -  Choose folder containing transformation files for imaging round.
+   -  Choose output folder for registered images.
+   -  Choose folder containing copied and renamed transformation files.
    -  Check _interpolate_ and run.
-7. The transformation process can output image files that are different sizes. Resize images and crop leftover trim regions in the following manner:
-   - Open all images together with _Image --> Stacks --> Images to Stack_, method set to _Copy (top-left)_, and _Use Titles and Labels_ checked.
-   - Use rectangle selection tool to set image boundary and crop using _Image --> Crop_ or _Ctrl + Shift + X_.
-   - Convert stack to individual images (_Image --> Stacks --> Stack to Images_) and save as TIFF files (_File --> Save As --> Tiff.._).  
-8. If necessary, change each individual image titles to match the required naming conventions.  See "Important Considerations" in Step 1 for file and folder naming conventions.<br><br><br>
+8. Crop the image stack that pops up by using the box tool and the dapi images to generate a crop box and typing the keyboard shortcut (Ctrl+Shift+X).  Convert the stack into individual images and save.
+9. If necessary, change each individual image titles to match the required naming conventions.  See "Important Considerations" in Step 1 for file and folder naming conventions.<br><br><br>
 
 
 
