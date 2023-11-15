@@ -55,8 +55,8 @@ The following protocol outlines how to do this for one tissue section.  A comple
    - Select one of your DAPI input images.  All other images will be registered to this DAPI image.
    - An image stack will pop up with all of your registered DAPI images.  Scroll through to ensure that registration worked properly.
 5. Place each transformation file into its appropriate subfolder.  **_Make copies_** of each transformation file in each subfolder until you have the same number of transformation files as you do images for that round.  For example, if you have 3 mRNA images that correspond to the T0-dapi image, make sure that you make 3 copies of the T0-dapi transformation file (see image below).
-6. Rename each copy of the transformation files to match the image name that it corresponds to.  For example, if the T0-dapi file corresponds to the T1-met, T2-met, and T3-rorb mRNA channels, rename the three copies of the T0-dapi transformation file to T1-met, T2-met, and T3-rorb (see image below).<br><br>  
-
+6. Rename each copy of the transformation files to match the image name that it corresponds to.  For example, if the T0-dapi file corresponds to the T1-met, T2-met, and T3-rorb mRNA channels, rename the three copies of the T0-dapi transformation file to T1-met, T2-met, and T3-rorb (see image below).<br><br><br><br>  
+<br><br>
 ![image](https://github.com/ramin-ali-marandi-ghoddousi/SCAMPR/assets/64667688/54e57ddb-7de2-4828-ada7-37dbcd134200)<br><br>
 
 7. Run the _Transform Virtual Stack Slices_ plugin (_Plugins --> Transform_)
